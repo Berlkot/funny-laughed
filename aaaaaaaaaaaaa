@@ -1,0 +1,21 @@
+def merge_sort(mas: list):
+    sor = []
+    for i in range(len(mas)):
+        sor.append([mas[i]])
+    if len(sor)%2:
+        sor.append([])
+    while len(sor) != 1:
+        pod = []
+        mas1, mas2 = sor.pop(0), sor.pop(0)
+        for i in mas1:
+            for j in mas2:
+                if i > j:
+                    pod.append(j)
+                elif mas2 != [] and mas1[-1] == i and i < j and j == mas2[-1]:
+                    pod.append(j)
+                else:
+                    break
+            pod.append(i)
+        sor.append(pod)
+        print(sor)
+    return(sor)
